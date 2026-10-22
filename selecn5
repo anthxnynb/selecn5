@@ -1,0 +1,39 @@
+
+Algoritmo Validacion_Fecha
+    Definir dia, mes, anio, diasMes Como Entero
+
+    Escribir "Ingrese el dia:"
+    Leer dia
+    Escribir "Ingrese el mes (1-12):"
+    Leer mes
+    Escribir "Ingrese el anio:"
+    Leer anio
+
+    Si anio <= 0 Entonces
+        Escribir "Fecha no valida."
+    Sino
+        Si mes < 1 O mes > 12 Entonces
+            Escribir "Fecha no valida."
+        Sino
+            Si mes = 1 O mes = 3 O mes = 5 O mes = 7 O mes = 8 O mes = 10 O mes = 12 Entonces
+                diasMes = 31
+            Sino
+                Si mes = 4 O mes = 6 O mes = 9 O mes = 11 Entonces
+                    diasMes = 30
+                Sino
+                    Si (anio MOD 400 = 0) O ((anio MOD 4 = 0) Y (anio MOD 100 <> 0)) Entonces
+                        diasMes = 29
+                    Sino
+                        diasMes = 28
+                    FinSi
+                FinSi
+            FinSi
+
+            Si dia >= 1 Y dia <= diasMes Entonces
+                Escribir "La fecha es valida."
+            Sino
+                Escribir "Fecha no valida."
+            FinSi
+        FinSi
+    FinSi
+FinAlgoritmo
